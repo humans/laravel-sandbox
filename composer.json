@@ -1,0 +1,26 @@
+{
+    "name": "humans/laravel-sandbox",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaggy Gauran",
+            "email": "jaggy@hey.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Humans\\Sandbox\\": "src"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Humans\\Sandbox\\SandboxServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    }
+}
