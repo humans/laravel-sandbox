@@ -10,6 +10,11 @@ abstract class Sandbox
 
     abstract public function run();
 
+    public function id()
+    {
+        return get_called_class();
+    }
+
     public function title()
     {
         if ($this->title) {

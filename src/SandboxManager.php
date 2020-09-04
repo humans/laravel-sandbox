@@ -3,6 +3,7 @@
 namespace Humans\Sandbox;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Collection;
 
 class SandboxManager
 {
@@ -12,7 +13,14 @@ class SandboxManager
 
     public function register($sandboxes = [])
     {
-        $this->sandboxes = $sandboxes;
+        $this->sandboxes = Collection::make($sandboxes)->mapWithKeys(function ($sandbox) {
+            return [$sandbox => App::make($sandbox)];
+        });
+    }
+
+    public function sandboxes()
+    {
+        return $this->sandboxes;
     }
 
     public function run($sandbox)
@@ -22,11 +30,11 @@ class SandboxManager
 
     public function get($sandbox)
     {
-        if (! in_array($sandbox, $this->sandboxes)) {
+        if (! array_key_exists($sandbox, $this->sandboxes)) {
             // Throw an exception here.
         }
 
-        return App::make($sandbox);
+        return $this->sandboxes[$sandbox];
     }
 }
 
