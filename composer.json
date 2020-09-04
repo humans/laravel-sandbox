@@ -20,6 +20,7 @@
                 "Humans\\Sandbox\\SandboxServiceProvider"
             ],
             "aliases": {
+                "Sandbox": "Humans\\Sandbox\\Facade"
             }
         }
     }
