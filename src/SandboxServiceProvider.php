@@ -11,6 +11,10 @@ class SandboxServiceProvider extends ServiceProvider
         $this->app->bind('sandbox', function () {
             return new SandboxManager;
         });
+
+        $this->commands([
+            Console\SandboxMakeCommand::class,
+        ]);
     }
 
     public function boot()
