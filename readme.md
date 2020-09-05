@@ -12,7 +12,7 @@ composer require humans/laravel-sandbox
 Sandbox provides an artisan command to create a sandbox class. All files are added to your `app/Sandbox` folder.
 
 ```bash
-php artisan make:sandbox SalesDemo
+php artisan sandbox:make SalesDemo
 ```
 
 ## Register your Sandbox in a Service Provider
@@ -45,7 +45,7 @@ class SalesDemo extends Sandbox
 
 ## Create a layout for your sandbox
 
-```
+```html
 @foreach (Sandbox::sandboxes() as $sandbox)
   <h3>{{ $sandbox->title() }}</h3>
   <form method="POST" action="{{ route('sandbox.run') }}">
