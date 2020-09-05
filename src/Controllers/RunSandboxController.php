@@ -4,19 +4,24 @@ namespace Humans\Sandbox\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
-use Humans\Sandbox\Facade as Sandbox;
 use Humans\Sandbox\Contracts\RefreshDatabase;
+use Humans\Sandbox\SandboxManager;
 
 class RunSandboxController
 {
+    protected SandboxManager $sandbox;
+
+    public function __construct(SandboxManager $sandbox)
+    {
+        $this->sandbox = $sandbox;
+    }
+
     public function __invoke(Request $request)
     {
-        $sandbox = Sandbox::get($request->sandbox);
-
-        if ($sandbox instanceof RefreshDatabase) {
+        if ($this->sandbox instanceof RefreshDatabase) {
             Artisan::call('migrate:fresh');
         }
 
-        return $sandbox->run();
+        return $this->sandbox->run();
     }
 }
