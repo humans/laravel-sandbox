@@ -15,7 +15,7 @@ class SandboxManager
     {
         $this->sandboxes = Collection::make($sandboxes)->mapWithKeys(function ($sandbox) {
             return [$sandbox => App::make($sandbox)];
-        });
+        })->toArray();
     }
 
     public function sandboxes()
