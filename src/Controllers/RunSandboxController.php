@@ -22,6 +22,8 @@ class RunSandboxController
             Artisan::call('migrate:fresh');
         }
 
+        $this->sandbox->setup();
+
         return $this->sandbox->run();
     }
 }
