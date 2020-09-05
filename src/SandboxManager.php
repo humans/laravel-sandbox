@@ -13,9 +13,7 @@ class SandboxManager
 
     public function register($sandboxes = [])
     {
-        $this->sandboxes = Collection::make($sandboxes)->mapWithKeys(function ($sandbox) {
-            return [$sandbox => App::make($sandbox)];
-        });
+        $this->sandboxes = $sandboxes;
     }
 
     public function sandboxes()
@@ -23,18 +21,13 @@ class SandboxManager
         return $this->sandboxes;
     }
 
-    public function run($sandbox)
+    public function make($sandbox)
     {
-        return $this->get($sandbox)->run();
-    }
-
-    public function get($sandbox)
-    {
-        if (! array_key_exists($sandbox, $this->sandboxes)) {
+        if (! in_array($sandbox, $this->sandboxes)) {
             // Throw an exception here.
         }
 
-        return $this->sandboxes[$sandbox];
+        return App::make($this->sandboxes[$sandbox]);
     }
 }
 
