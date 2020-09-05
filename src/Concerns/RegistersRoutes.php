@@ -9,6 +9,6 @@ trait RegistersRoutes
 {
     public function routes()
     {
-        Route::post('sandbox/run', [RunSandboxController::class, '__invoke'])->name('sandboxes.run');
+        Route::post('sandboxes/run', [RunSandboxController::class, '__invoke'])->name('sandboxes.run');
     }
 }
