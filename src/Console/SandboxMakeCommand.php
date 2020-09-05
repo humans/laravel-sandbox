@@ -6,7 +6,7 @@ use Illuminate\Console\GeneratorCommand;
 
 class SandboxMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:sandbox';
+    protected $name = 'sandbox:make';
 
     protected $description = 'Create a new sandbox';
 
