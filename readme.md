@@ -28,9 +28,10 @@ Sandbox::register([
 
 ```php
 use Auth;
+use Humans\Sandbox\Contracts\RefreshDatabase;
 use Humans\Sandbox\Sandbox;
 
-class SalesDemo extends Sandbox
+class SalesDemo extends Sandbox implements RefreshDatabase
 {
     public function run()
     {
@@ -43,7 +44,7 @@ class SalesDemo extends Sandbox
 }
 ```
 
-## Create a layout for your sandbox
+## Create a view for your sandboxes.
 
 ```html
 @foreach (Sandbox::sandboxes() as $sandbox)
@@ -55,3 +56,5 @@ class SalesDemo extends Sandbox
   </form>
 @endforeach
 ```
+
+Make sure to add the prefix to the route name if you used a route name prefix.
