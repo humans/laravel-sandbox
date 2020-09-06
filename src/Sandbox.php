@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 abstract class Sandbox
 {
-    protected $title;
+    protected $name;
 
     abstract public function run();
 
@@ -15,10 +15,10 @@ abstract class Sandbox
         return get_called_class();
     }
 
-    public function title()
+    public function name()
     {
-        if ($this->title) {
-            return $this->title;
+        if ($this->name) {
+            return $this->name;
         }
 
         return (string) Str::of($this->classname())
