@@ -33,6 +33,6 @@ class RunSandboxController
 
     private function replicateCurrentUser()
     {
-        return tap(Auth::user()->replicate())->save()
+        return tap(Auth::user()->replicate())->save();
     }
 }
