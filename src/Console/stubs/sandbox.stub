@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Humans\Sandbox\Contracts\RetainsCurrentSession;
+use Humans\Sandbox\Contracts\RetainCurrentSession;
 use Humans\Sandbox\Contracts\RefreshDatabase;
 use Humans\Sandbox\Sandbox;
 
