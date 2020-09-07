@@ -15,7 +15,7 @@ class SandboxManager
     {
         $this->sandboxes = Collection::make($sandboxes)->mapWithKeys(function ($sandbox) {
             return [$sandbox => App::make($sandbox)];
-        });
+        })->toArray();
     }
 
     public function sandboxes()
@@ -23,12 +23,7 @@ class SandboxManager
         return $this->sandboxes;
     }
 
-    public function run($sandbox)
-    {
-        return $this->get($sandbox)->run();
-    }
-
-    public function get($sandbox)
+    public function make($sandbox)
     {
         if (! array_key_exists($sandbox, $this->sandboxes)) {
             // Throw an exception here.

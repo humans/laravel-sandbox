@@ -7,6 +7,11 @@ use Humans\Sandbox\Sandbox;
 
 class {{ class }} extends Sandbox
 {
+    public function setup()
+    {
+        //
+    }
+
     public function run()
     {
         //
